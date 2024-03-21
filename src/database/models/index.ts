@@ -1,23 +1,27 @@
-// 'use strict';
-
 // import fs from 'fs';
 // import path from 'path';
-// import { Sequelize, Model, DataTypes } from 'sequelize';
-// import process from 'process';
+// import { Sequelize } from 'sequelize';
+// import { Config } from '../config/config'; 
+
 // const basename: string = path.basename(__filename);
 // const env: string = process.env.NODE_ENV || 'development';
-// const config: any = require(__dirname + '/../config/config.json')[env]; // Adjust type if possible
+// const config: Config = require(path.join(__dirname, '../config/config.js'))[env];
 // const db: any = {};
 
 // let sequelize: Sequelize;
+
 // if (config.use_env_variable) {
 //   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 // } else {
-//   sequelize = new Sequelize(config.database, config.username, config.password, config);
+//   sequelize = new Sequelize(
+//     config.database!,
+//     config.username!,
+//     config.password!,
+//     config,
+//   );
 // }
 
-// fs
-//   .readdirSync(__dirname)
+// fs.readdirSync(__dirname)
 //   .filter((file: string) => {
 //     return (
 //       file.indexOf('.') !== 0 &&
@@ -27,7 +31,7 @@
 //     );
 //   })
 //   .forEach((file: string) => {
-//     const model: any = require(path.join(__dirname, file))(sequelize, DataTypes); // Adjust type if possible
+//     const model = require(path.join(__dirname, file))(sequelize);
 //     db[model.name] = model;
 //   });
 
