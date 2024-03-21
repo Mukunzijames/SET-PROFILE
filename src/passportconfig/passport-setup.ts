@@ -23,7 +23,7 @@ const options = {
 export default passport.use(new GoogleStrategy(options, async(accessToken, refreshToken,profile:any, done) => {
     //take call back functions
     console.log("connected to google data")
-
+    console.log(profile)
     const googleData = {
         userName: profile.displayName,
         email: profile.emails[0].value,
