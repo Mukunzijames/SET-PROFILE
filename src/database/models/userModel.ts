@@ -11,6 +11,10 @@ const sequelize = new Sequelize({
 
 sequelize.authenticate().then(() => console.log("connection established")).catch((err) => console.log(err))
 
+
+// defining user model
+
+
 const UserInfo = sequelize.define('PersonalData', {
     userName: {
         type: DataTypes.STRING,
