@@ -1,11 +1,17 @@
 import { Sequelize, DataTypes } from "sequelize";
 
-const sequelize = new Sequelize('test, postgres, db123', {
+const sequelize = new Sequelize({
+    database: 'test',
+    dialect: 'postgres',
+    username: 'postgres',
+    password: 'db123',
     host: 'localhost',
-    dialect: 'postgres'
+    port: 5432
 })
 
-const UserInfo = sequelize.define('userinfo', {
+sequelize.authenticate().then(() => console.log("connection established")).catch((err) => console.log(err))
+
+const UserInfo = sequelize.define('PersonalData', {
     userName: {
         type: DataTypes.STRING,
         allowNull: false
@@ -22,10 +28,14 @@ const UserInfo = sequelize.define('userinfo', {
 
 
 (async () => {
-    await sequelize.sync();
-    console.log('User table created successfully!');
-})
+    try{
 
-console.log(UserInfo)
+        await sequelize.sync();
+        console.log('User is created');
+    } catch(error) {
+        console.log(error)
+    }
+})()
+
 
 export default UserInfo
