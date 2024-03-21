@@ -1,4 +1,3 @@
-
 // import fs from 'fs';
 // import path from 'path';
 // import { Sequelize } from 'sequelize';
@@ -46,6 +45,12 @@
 // db.Sequelize = Sequelize;
 
 // export default db;
+
+
+
+
+
+
 
 
 
