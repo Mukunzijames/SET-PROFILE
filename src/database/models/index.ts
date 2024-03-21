@@ -1,3 +1,41 @@
+const { Sequelize, DataTypes } = require("sequelize");
+
+const sequelize = new Sequelize('test, postgres, db123', {
+    host: 'localhost',
+    dialect: 'postgres'
+})
+
+const UserInfo = sequelize.define('userinfo', {
+    userName: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    profilePicture: {
+        type: DataTypes.STRING,
+        allowNull: true
+    }
+});
+
+
+(async () => {
+    await sequelize.sync();
+    console.log('User table created successfully!');
+})
+
+export default UserInfo
+
+
+
+
+
+
+
+
+
 
 // import fs from 'fs';
 // import path from 'path';
@@ -46,6 +84,10 @@
 // db.Sequelize = Sequelize;
 
 // export default db;
+
+
+
+
 
 
 
