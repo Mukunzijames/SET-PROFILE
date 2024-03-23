@@ -18,7 +18,6 @@ class User extends Model<UserAttributes> implements UserAttributes {
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 
-  // Define associations if needed
 }
 
 export function initUser(sequelize: Sequelize) {
